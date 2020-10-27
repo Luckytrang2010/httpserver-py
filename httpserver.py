@@ -2,13 +2,6 @@ import socket
 import json
 import threading 
 from requests.auth import HTTPBasicAuth 
-#import sys
-
-# Can you make it work?
-# Write answer here: --------> probably
-
-
-
 
 class HttpServer:
   
