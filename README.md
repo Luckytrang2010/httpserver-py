@@ -27,7 +27,7 @@ import httpserver
 </html>
 """
 indexhtml = open("./index.html","r")
-server = HttpServer()
+server = httpserver.HttpServer()
 html = indexhtml.read()
 server.listen(html) # Port 8089
 ```
