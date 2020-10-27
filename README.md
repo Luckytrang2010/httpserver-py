@@ -11,7 +11,7 @@ No, it will soon be a module, and come up in pypi website.
 
 # How do you use this?
 
-Edit the index.html if you want, and then try to run the ip along with port on the output saying it's listening on, and it will pop up for you. :)
+Edit the index.html if you want, then run client.py and try to run the ip along with port on the output saying it's listening on, and it will pop up for you. :)
 
 Works on any devices on your network too. (Not 100% sure)
 
