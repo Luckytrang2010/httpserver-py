@@ -2,13 +2,14 @@ import socket
 import json
 import threading 
 from requests.auth import HTTPBasicAuth 
+import sys
 
 class HttpServer:
   
     def __init__(self):
         pass
-    def listen(self,data):
-        self.port = 8089 
+    def listen(self,data,port):
+        self.port = port
         self.proto = "HTTP/1.1 200 OK"
         headers = {
             "Content-Length": len(data)*2, #len(data)*2 / sys.getsizeof(data)
@@ -22,7 +23,7 @@ class HttpServer:
         hostname = socket.gethostname()
         dns_resolved_addr = socket.gethostbyname(hostname)
         try:
-            serversocket.bind((dns_resolved_addr, 8089)) #self.port
+            serversocket.bind((dns_resolved_addr, self.port)) #self.port
         except socket.error as msg:
             print("Bind failed.\n{}".format(msg))
         print("Listening on {}:{}".format(socket.gethostbyname(socket.gethostname()), self.port)) 
@@ -38,3 +39,13 @@ class HttpServer:
                 client.send("\n".encode())
                 client.send(self.data.encode())
                 break
+def main():
+    try:
+        file = sys.argv[1]
+        port = int(sys.argv[2])
+        HttpServer().listen(open(file).read(),port)
+    except Exception as msg:
+        print("Syntax: python -m httpserver htmlfile port")
+        sys.exit()
+if __name__ == "__main__":
+    main()
