@@ -11,7 +11,30 @@ No, it will soon be a module, and come up in pypi website.
 
 # How do you use this?
 
-Edit the index.html if you want, then run client.py and try to run the ip along with port on the output saying it's listening on, and it will pop up for you. :)
+**Short instructions for this repo**
+---
+
+```py
+import httpserver
+"""<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>nice cock bro</script>
+    </head>
+    <body>
+        <center><h1>nice cock bro</h1></center>
+    </body>
+</html>
+"""
+indexhtml = open("./index.html","r")
+server = HttpServer()
+html = indexhtml.read()
+server.listen(html) # Port 8089
+```
+
+Must be able to run the script in current directory where the httpserver.py is, because this isn't a module yet. :3
+
+---
 
 Works on any devices on your network too. (Not 100% sure)
 
