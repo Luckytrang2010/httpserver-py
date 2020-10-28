@@ -34,6 +34,7 @@ class HttpServer:
                 print("[+] {}:{} has connected".format(conn,addr)) # conn is the ip, addr is the port
                 print("Sending required HTTP headers and data..") 
                 client.send(self.proto.encode())
+                client.send("\n".encode())
                 for i in headers:
                     client.send(i.encode())
                 client.send("\n".encode())
